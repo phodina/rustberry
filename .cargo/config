@@ -1,2 +1,11 @@
 [build]
-rustflags="-C target-feature=-neon"
+target = "aarch64-unknown-none"
+
+[target.thumbv7em-none-eabi]
+runner = 'arm-none-eabi-gdb'
+rustflags = [
+  # uncomment to use rustc LLD linker
+   "-C", "link-arg=-Tlayout.ld",
+   "-C", "linker=lld-link",
+   "-Z", "linker-flavor=ld.lld",
+]

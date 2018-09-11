@@ -1,12 +1,12 @@
 [package]
 name = "rustberry"
 version = "0.1.0"
-authors = ["Petr Hodina <hodinapetr46@gmail.com>"]
+authors = ["Petr Hodina <petr.hodina@siemens.com>"]
 
-[lib]
-name = "rustberry"
-crate-type = ["staticlib"]
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"
 
 [dependencies]
-rlibc = "1.0"
-compiler_builtins = { git = "https://github.com/rust-lang-nursery/compiler-builtins" }
